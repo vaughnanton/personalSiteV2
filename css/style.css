@@ -1,8 +1,9 @@
 body {
-  background-color: #000;
+  background-color: #f8f8f8;
 }
 
 .mark-canvas {
+  background-color: #000;
   position: fixed;
   z-index: 1;
   top:0;
@@ -97,9 +98,7 @@ ul {
 .index-page.boost-launch {
   overflow-x:hidden;
 }
-.index-page {
-  background: #000;
-}
+
 .index-page .scrollable {
   display: flex;
   align-items:center;
@@ -115,7 +114,7 @@ ul {
   min-height: 100vh;
 }
 .my-builds {
-  background-color:#f8f8f8;
+  background-color:#fff;
   display: flex;
   flex-direction: column;
 }
