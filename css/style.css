@@ -3,13 +3,16 @@ body {
 }
 
 .mark-canvas {
-  background-color: #000;
+  background-color: #040404;
+  /*background:url(../img/bg.jpg) center center no-repeat;
+  background-size:cover;*/
   position: fixed;
   z-index: 1;
   top:0;
   left:0;
   right:0;
-  perspective:10px;
+  perspective:1000px;
+  -webkit-perspective:1000px;
   display:flex;
   flex-direction: column;
 }

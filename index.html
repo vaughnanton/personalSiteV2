@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="index-page boost-launch">
   <section class="fill-height mark-canvas">
     <div class="logo-wrapper">
-      <img src="img/logo-test.png"/>
+      <img src="img/logo.gif"/>
     </div>
 
     <header class="header-bar">
       <div class="social-icons">
         <ul>
-          <li><i class="fa fa-twitter-square fa-2x"></i></li>
+          <li><i class="fa fa-twitter fa-2x"></i></li>
           <li><i class="fa fa-github fa-2x"></i></li>
           <li><i class="fa fa-soundcloud fa-2x"></i></li>
           <li><i class="fa fa-instagram fa-2x"></i></li>
@@ -35,15 +36,23 @@
 
 <script>
 
-var divs = $('.mark-canvas'),
-    limit = 900;  /* scrolltop value when opacity should be 0 */
+var topElement = $('.mark-canvas');
+var upperNavigation = $('.header-cta');
+var scrollPercentage = void 0;
+var windowHeight = window.innerHeight;
+var scrollPosition = window.scrollY;
+var scrollPercentage = 10 / windowHeight;
+
+//opacity function
+
+var divs = $('.mark-canvas');
+var limit = 900;  /* scrolltop value when opacity should be 0 */
 
 $(window).on('scroll', function() {
    var st = $(this).scrollTop();
-
-   /* avoid unnecessary call to jQuery function */
    if (st <= limit) {
       divs.css({ 'opacity' : (1 - st/limit) });
+      upperNavigation.css({"transform": "translate3d(0px, 0px" + 2000 * scrollPercentage + "px)"});
    }
 });
 </script>
