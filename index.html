@@ -37,22 +37,27 @@
 <script>
 
 var topElement = $('.mark-canvas');
-var upperNavigation = $('.header-cta');
+var upperNavigation = $('.header-bar');
 var scrollPercentage = void 0;
 var windowHeight = window.innerHeight;
 var scrollPosition = window.scrollY;
 var scrollPercentage = 10 / windowHeight;
-
-//opacity function
+var limit = windowHeight + 100;
+console.log('stock limit is' + limit);
 
 var divs = $('.mark-canvas');
-var limit = 900;  /* scrolltop value when opacity should be 0 */
+$(window).resize(function(){
+  windowHeight = $(window).height(); // get new height after change
+  limit = windowHeight +100 ;
+  console.log('the resize limit is' + limit);
+})
 
 $(window).on('scroll', function() {
    var st = $(this).scrollTop();
    if (st <= limit) {
+     console.log('this function limit is' + limit);
       divs.css({ 'opacity' : (1 - st/limit) });
-      upperNavigation.css({"transform": "translate3d(0px, 0px" + 2000 * scrollPercentage + "px)"});
+      upperNavigation.css({ 'transform': 'translate3d(0px, 0px' + 2000 * scrollPercentage + 'px)' });
    }
 });
 </script>

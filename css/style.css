@@ -81,6 +81,7 @@ ul {
 
 .header-bar {
   position: absolute;
+  transform: translate3d(0px,0px,0px);
   bottom: 0;
   left:0;
   right:0;
