@@ -36,29 +36,51 @@
 
 <script>
 
+var scrollPosition = window.scrollY;
+var windowHeight = window.innerHeight;
+var scrollPercentage = 200 / windowHeight;
+console.log(scrollPercentage);
 var topElement = $('.mark-canvas');
 var upperNavigation = $('.header-bar');
-var scrollPercentage = void 0;
-var windowHeight = window.innerHeight;
-var scrollPosition = window.scrollY;
-var scrollPercentage = 10 / windowHeight;
-var limit = windowHeight + 100;
-console.log('stock limit is' + limit);
+var limit = windowHeight - 100;
 
-var divs = $('.mark-canvas');
+// function to change limit to window height after resize
 $(window).resize(function(){
-  windowHeight = $(window).height(); // get new height after change
-  limit = windowHeight +100 ;
-  console.log('the resize limit is' + limit);
+  windowHeight = $(window).height();
+  limit = windowHeight - 100 ;
 })
 
+// function to change opacity upon scroll based on limit
 $(window).on('scroll', function() {
    var st = $(this).scrollTop();
    if (st <= limit) {
-     console.log('this function limit is' + limit);
-      divs.css({ 'opacity' : (1 - st/limit) });
-      upperNavigation.css({ 'transform': 'translate3d(0px, 0px' + 2000 * scrollPercentage + 'px)' });
+      topElement.css({ 'opacity' : (1 - st/limit) });
    }
-});
+})
+
+
+var scrollPosition = document.scrollingElement.scrollTop;
+console.log(scrollPosition);
+function scrollDelta() {
+  var newScrollPosition = document.scrollingElement.scrollTop;
+  console.log(newScrollPosition);
+  var delta = newScrollPosition - scrollPosition;
+  scrollPosition = document.scrollingElement.scrollTop;
+  return delta;
+}
+
+var boxPositions = [0,0,0];
+function moveCamera () {
+  var boxes = document.getElementsByClassName("header-bar");
+  var delta = scrollDelta();
+  console.log(delta);
+  for (var i=0, l=boxes.length; i<l; i++) {
+    boxPositions[i] += delta;
+    boxes[i].style["-webkit-transform"] = "translateZ("+boxPositions[i]+"px)";
+  }
+}
+window.addEventListener("scroll", moveCamera, false);
+
+;
 </script>
 <html>
