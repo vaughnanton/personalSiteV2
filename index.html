@@ -58,22 +58,20 @@ $(window).on('scroll', function() {
    }
 })
 
-
+//function to get the change between scroll positions
 var scrollPosition = document.scrollingElement.scrollTop;
-console.log(scrollPosition);
 function scrollDelta() {
   var newScrollPosition = document.scrollingElement.scrollTop;
-  console.log(newScrollPosition);
   var delta = newScrollPosition - scrollPosition;
   scrollPosition = document.scrollingElement.scrollTop;
   return delta;
 }
 
+//funciton to edit the z axis of the element
 var boxPositions = [0,0,0];
 function moveCamera () {
   var boxes = document.getElementsByClassName("header-bar");
   var delta = scrollDelta();
-  console.log(delta);
   for (var i=0, l=boxes.length; i<l; i++) {
     boxPositions[i] += delta;
     boxes[i].style["-webkit-transform"] = "translateZ("+boxPositions[i]+"px)";
@@ -81,6 +79,5 @@ function moveCamera () {
 }
 window.addEventListener("scroll", moveCamera, false);
 
-;
 </script>
 <html>
