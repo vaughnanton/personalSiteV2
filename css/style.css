@@ -129,6 +129,27 @@ ul {
 }
 .my-builds {
   background-color:#fff;
-  display: flex;
-  flex-direction: column;
+  /*display: flex;
+  flex-direction: column;*/
+}
+
+.build-left-block {
+  float:left;
+  width:50%;
+  display:inline;
+}
+
+.build-right-block {
+  float: right;
+  width:50%;
+  display:inline;
+}
+
+.cta-button {
+  clear:both;
+}
+
+.cta-button button {
+  display:block;
+  margin:0 auto;
 }
