@@ -1,10 +1,10 @@
 body {
-  background-color: #f8f8f8;
+  background-color: #000;
 }
 
 .mark-canvas {
   background-color: #040404;
-  /*background:url(../img/bg.jpg) center center no-repeat;
+  /*background:url(../img/bg3.jpg) center center no-repeat;
   background-size:cover;*/
   position: fixed;
   z-index: 1;
